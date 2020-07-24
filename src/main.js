@@ -12,6 +12,11 @@ import Vant from 'vant'
 import 'vant/lib/index.css'
 // 导入 flexible
 import 'amfe-flexible'
+// 导入字体Css
+import '@/style/iconfont.css'
+// 导入
+import '@/style/base.less'
+
 // 注册组件库
 Vue.use(Vant)
 
