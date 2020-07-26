@@ -5,25 +5,42 @@ import company from '../views/company'
 import find from '../views/find'
 import my from '../views/my'
 import question from '../views/question'
+import login from '../views/login'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/company',
-    component: company
+    component: company,
+    meta: {
+      showTabbar: true
+    }
   },
   {
     path: '/find',
-    component: find
+    component: find,
+    meta: {
+      showTabbar: true
+    }
   },
   {
     path: '/my',
-    component: my
+    component: my,
+    meta: {
+      showTabbar: true
+    }
   },
   {
     path: '/question',
-    component: question
+    component: question,
+    meta: {
+      showTabbar: true
+    }
+  },
+  {
+    path: '/login',
+    component: login
   }
 ]
 // 我是注释

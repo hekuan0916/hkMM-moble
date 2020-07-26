@@ -1,6 +1,6 @@
 <template>
-  <div class="my">
-    我
+  <div class="login">
+    登陆
   </div>
 </template>
 
