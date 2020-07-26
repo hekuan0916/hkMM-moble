@@ -1,17 +1,37 @@
 <template>
   <div class="app">
-    <!-- <van-button class="fs" type="primary">主要按钮</van-button> -->
-    <i class="iconfont iconicon_footbar_fx_sel"></i><br />
-    <i class="iconfont iconicon_footbar_fx_sel"></i><br />
-    <i class="iconfont iconicon_footbar_fx_sel"></i><br />
-    <i class="iconfont iconicon_footbar_fx_sel"></i><br />
-    <i class="iconfont iconicon_footbar_fx_sel"></i><br />
-    <i class="iconfont iconicon_footbar_fx_sel"></i>
+    <router-view></router-view>
+    <van-tabbar route active-color="#e40137" inactive-color="#b4b4bd">
+      <van-tabbar-item to="/company"
+        ><span>公司</span>
+        <template #icon>
+          <i class="iconfont iconicon_footbar_gs_sel"> </i> </template
+      ></van-tabbar-item>
+      <van-tabbar-item to="/question"
+        ><span>刷题</span>
+        <template #icon>
+          <i class="iconfont iconicon_footbar_gs_sel">
+          </i> </template></van-tabbar-item
+      ><van-tabbar-item to="/find"
+        ><span>发现</span>
+        <template #icon>
+          <i class="iconfont iconicon_footbar_gs_sel">
+          </i> </template></van-tabbar-item
+      ><van-tabbar-item to="/my"
+        ><span>我的</span>
+        <template #icon>
+          <i class="iconfont iconicon_footbar_gs_sel"> </i> </template
+      ></van-tabbar-item>
+    </van-tabbar>
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  data () {
+    return {}
+  }
+}
 </script>
 
 <style lang="less">
