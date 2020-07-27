@@ -14,7 +14,6 @@ import 'vant/lib/index.css'
 import 'amfe-flexible'
 // 导入字体Css
 import '@/style/iconfont.css'
-// 导入 自己的初始化样式 先放别人的样式 再放自己的 避免覆盖
 import '@/style/base.less'
 
 // 注册组件库
