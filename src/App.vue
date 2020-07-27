@@ -34,7 +34,9 @@
 <script>
 export default {
   data () {
-    return {}
+    return {
+      actives: 0
+    }
   }
 }
 </script>
