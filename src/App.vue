@@ -23,6 +23,7 @@
           <i class="iconfont iconicon_footbar_gs_sel"> </i> </template
       ></van-tabbar-item>
     </van-tabbar>
+    <!-- 123 -->
   </div>
 </template>
 
