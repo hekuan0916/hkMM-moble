@@ -1,11 +1,13 @@
 <template>
   <div class="login">
-    登陆
+    <MMNavBar> </MMNavBar>
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  name: 'login'
+}
 </script>
 
 <style></style>
