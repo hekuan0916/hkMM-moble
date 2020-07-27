@@ -1,6 +1,6 @@
 <template>
   <div class="question">
-    我是公司
+    我是问题
   </div>
 </template>
 

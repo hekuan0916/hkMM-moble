@@ -1,7 +1,12 @@
 <template>
   <div class="app">
     <router-view></router-view>
-    <van-tabbar route active-color="#e40137" inactive-color="#b4b4bd">
+    <van-tabbar
+      v-show="$route.meta.showTabbar"
+      route
+      active-color="#e40137"
+      inactive-color="#b4b4bd"
+    >
       <van-tabbar-item to="/company"
         ><span>公司</span>
         <template #icon>
@@ -30,7 +35,9 @@
 <script>
 export default {
   data () {
-    return {}
+    return {
+      actives: 0
+    }
   }
 }
 </script>

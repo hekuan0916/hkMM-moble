@@ -1,6 +1,6 @@
 <template>
   <div class="find">
-    我是公司
+    我是发现
   </div>
 </template>
 
