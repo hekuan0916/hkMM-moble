@@ -15,9 +15,12 @@ import 'amfe-flexible'
 // 导入字体Css
 import '@/style/iconfont.css'
 import '@/style/base.less'
+// 导入 全局组件
+import MMNavBar from './components/MMNavBar.vue'
 
 // 注册组件库
 Vue.use(Vant)
+Vue.component(MMNavBar.name, MMNavBar)
 
 Vue.config.productionTip = false
 
