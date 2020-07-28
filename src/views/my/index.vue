@@ -5,30 +5,30 @@
       <div class="user-box">
         <!-- 左侧 -->
         <div class="left">
-          <h3 class="title">续命咖啡</h3>
-          <p class="desc">面试不求人，我有面试宝典</p>
+          <h3 class="title">{{ userInfo.nickname }}</h3>
+          <p class="desc">{{ userInfo.intro }}</p>
         </div>
         <!-- 右侧头像 -->
         <div class="right">
-          <img class="avatar" src="@/assets/logo.png" alt="" />
+          <img class="avatar" :src="userInfo.avatar" alt="" />
         </div>
       </div>
       <!-- 统计信息 -->
       <ul>
         <li>
-          <p>555</p>
+          <p>{{ userInfo.submitNum }}</p>
           <p>累计答题</p>
         </li>
         <li>
-          <p>555</p>
+          <p>{{ userInfo.collectArticles.length }}</p>
           <p>收藏题目</p>
         </li>
         <li>
-          <p>555</p>
+          <p>{{ userInfo.errorQuestions.length }}</p>
           <p>我的错题</p>
         </li>
         <li>
-          <p>0 <span>%</span></p>
+          <p>{{ correctPercent }}<span>%</span></p>
           <p>正确率</p>
         </li>
       </ul>
@@ -50,18 +50,24 @@
         </div>
         <ul>
           <li>
-            <p>昨日阅读 <span>+100</span></p>
-            <p>17</p>
+            <p>
+              昨日阅读 <span>+{{ userInfo.shareData.read.yesterday }}</span>
+            </p>
+            <p>{{ userInfo.shareData.read.total }}</p>
             <p>阅读总数</p>
           </li>
           <li>
-            <p>昨日获赞 <span>+100</span></p>
-            <p>17</p>
+            <p>
+              昨日获赞 <span>+{{ userInfo.shareData.star.yesterday }}</span>
+            </p>
+            <p>{{ userInfo.shareData.star.total }}</p>
             <p>获赞总数</p>
           </li>
           <li>
-            <p>昨日新增 <span>+100</span></p>
-            <p>187</p>
+            <p>
+              昨日新增 <span>+{{ userInfo.shareData.comment.yesterday }}</span>
+            </p>
+            <p>{{ userInfo.shareData.comment.total }}</p>
             <p>评论总数</p>
           </li>
         </ul>
@@ -75,23 +81,27 @@
         <MMCell
           title="我的消息"
           icon="iconicon_mine_xiaoxi"
-          value="21"
+          :value="userInfo.systemMessages"
         ></MMCell>
         <MMCell
           title="收藏的题库"
-          icon="iconicon_mine_tikushoucang"
-          value="21"
+          icon="iconicon_zmine_tikushoucang"
+          :value="userInfo.collectQuestions.length"
         ></MMCell>
         <MMCell
           title="收藏的企业"
           icon="iconicon_mine_qiyeshoucang"
           value="21"
         ></MMCell>
-        <MMCell title="我的错题" icon="iconicon_mine_cuoti" value="21"></MMCell>
+        <MMCell
+          title="我的错题"
+          icon="iconicon_mine_cuoti"
+          :value="userInfo.errorQuestions.length"
+        ></MMCell>
         <MMCell
           title="收藏的面试经验"
           icon="iconbtn_shoucang_sel"
-          value="21"
+          :value="userInfo.collectQuestions"
         ></MMCell>
       </van-cell-group>
     </div>
@@ -103,11 +113,30 @@ import MMCell from './MMCell'
 export default {
   name: 'my',
   components: {
-    MMCell // MMCell:MMCell
+    MMCell
   },
   methods: {
     cellClick () {
       console.log('我真的点了一下哦哦哦！')
+    }
+  },
+  // 计算属性
+  computed: {
+    // 获取用户信息
+    userInfo () {
+      // 简化store数据获取
+      return this.$store.state.userInfo
+    },
+    // 计算正确率
+    correctPercent () {
+      return (
+        // 总答题数 - 错误数  /  总答题数
+        (
+          ((this.userInfo.submitNum - this.userInfo.errorNum) /
+            this.userInfo.submitNum) *
+          100
+        ).toFixed(1)
+      ) // toFixed(*) 小数点之后保留几位
     }
   }
 }
