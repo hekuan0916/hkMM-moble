@@ -4,6 +4,7 @@ import VueRouter from 'vue-router'
 import company from '../views/company'
 import find from '../views/find'
 import my from '../views/my'
+import user from '../views/my/user.vue'
 import question from '../views/question'
 import login from '../views/login'
 
@@ -39,8 +40,16 @@ const routes = [
     }
   },
   {
+    path: '/user',
+    component: user
+  },
+  {
     path: '/login',
     component: login
+  },
+  {
+    path: '/',
+    redirect: login
   }
 ]
 // 我是注释

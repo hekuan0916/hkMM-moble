@@ -26,6 +26,7 @@ export default {
 <style lang="less">
 .mm-cell {
   height: 55px;
+  line-height: 55px;
   .iconfont {
     font-size: 21px;
   }

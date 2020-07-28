@@ -2,7 +2,7 @@
   <div class="my">
     <div class="top">
       <!-- 用户盒子 -->
-      <div class="user-box">
+      <div class="user-box" @click="toUser" router>
         <!-- 左侧 -->
         <div class="left">
           <h3 class="title">{{ userInfo.nickname }}</h3>
@@ -35,7 +35,6 @@
     </div>
     <div class="bottom">
       <!-- 使用cell -group包裹 -->
-
       <MMCell
         title="我的岗位"
         icon="iconicon_mine_gangwei"
@@ -120,7 +119,11 @@ export default {
     cellClick () {
       console.log('我真的点了一下哦哦哦！')
     },
-    ...mapMutations(['SETUSERINFO'])
+    ...mapMutations(['SETUSERINFO']),
+    toUser () {
+      this.$router.push('user')
+      console.log(123)
+    }
   },
   // 计算属性
   computed: {
