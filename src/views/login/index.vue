@@ -99,7 +99,7 @@ export default {
           this.$toast.loading({
             duration: 0
           })
-          this.delay = 5
+          this.delay = 60
           // 开始倒计时
           const interId = setInterval(() => {
             this.delay--

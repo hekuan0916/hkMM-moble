@@ -110,6 +110,7 @@
 
 <script>
 import MMCell from './MMCell'
+import { mapState, mapMutations } from 'vuex'
 export default {
   name: 'my',
   components: {
@@ -118,19 +119,21 @@ export default {
   methods: {
     cellClick () {
       console.log('我真的点了一下哦哦哦！')
-    }
+    },
+    ...mapMutations(['SETUSERINFO'])
   },
   // 计算属性
   computed: {
     // 获取用户信息
-    userInfo () {
-      // 简化store数据获取
-      return this.$store.state.userInfo
-    },
+    // userInfo () {
+    //   // 简化store数据获取
+    //   return this.$store.state.userInfo
+    // },
+    ...mapState(['userInfo']),
     // 计算正确率
     correctPercent () {
       return (
-        // 总答题数 - 错误数  /  总答题数
+        // (((总答题数 - 错误数) / 总答题数)*100).toFixed(1)
         (
           ((this.userInfo.submitNum - this.userInfo.errorNum) /
             this.userInfo.submitNum) *
